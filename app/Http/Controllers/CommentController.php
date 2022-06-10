@@ -14,7 +14,6 @@ class CommentController extends Controller
     function ShowByObject($id){
         $workObject = WorkObject::query()->find($id);
         $comments = $workObject->comments;
-        //dd($comments);
         $users = array();
 
         foreach ($comments as $comment){
@@ -25,8 +24,6 @@ class CommentController extends Controller
     }
 
     function AddToObject(Request $request,$id){
-
-       // dd($request->all());
         $workObject = WorkObject::query()->find($id);
         $comment = $workObject->comments()->create(['comment' => $request->input('comment'),'user_id'=> Auth::id()]);
         $workObject->SaveHistory($comment);

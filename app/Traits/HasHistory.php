@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Auth;
 
-trait HasHistory{
+trait  HasHistory{
     protected  $originalModel;
     protected  $updatedModel;
     protected  $action;
@@ -83,8 +83,6 @@ trait HasHistory{
 
 
         foreach ($changes as $key=>$value){
-
-            //dump($changes);
             History::query()->create([
                 'historyble_id'=> $this->id,
                 'historyble_type'=> (string)get_class($this),

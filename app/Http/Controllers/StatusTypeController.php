@@ -38,8 +38,6 @@ class StatusTypeController extends Controller
     }
 
     function update(Request $request){
-        //dd($request->all());
-
         if($request->has('statuses'))
             foreach($request->statuses as $key => $value){
             Status::query()->UpdateOrcreate(['id'=>$value['id']],

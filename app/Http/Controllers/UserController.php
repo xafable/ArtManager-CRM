@@ -89,7 +89,6 @@ class UserController extends Controller
     }
 
     function update(Request $request){
-      // dd($request);
 
        User::query()->where('id',Auth::id())
            ->update([
@@ -102,7 +101,6 @@ class UserController extends Controller
     }
 
     function edit(){
-        //$user = Auth::user();
         return view('user.userProfile',['user'=>Auth::user()]);
     }
 

@@ -68,14 +68,11 @@ class TaskController extends Controller
         ]);
 
         $task->performers()->sync($request->performers);
-
         event(new UpdateTaskEvent($task));
-
 
         session()->flash('success' ,'Сохранено');
 
         return redirect()->route('task.edit',$taskId);
-
     }
     function store(StoreTaskRequest $request)
     {
@@ -96,14 +93,10 @@ class TaskController extends Controller
     }
 
     function showAll(Request $request){
-
-
         $tasks = Task::query()->filters($request->filters)->paginate(10);
-
         $workObjects = WorkObjectType::all();
         $taskStatuses = TaskStatus::all();
-        //dd($tasks);
-        //dd($taskStatuses->firstWhere('id', '1'));
+
         return view('taskShowAll',
             ['tasks'=>$tasks,
              'taskStatuses'=>$taskStatuses ,
@@ -123,13 +116,4 @@ class TaskController extends Controller
             'workObject'=>$workObject]);
     }
 
-   /* function showByWOType($type_id)
-    {
-        $tasks = Task::query()->FilterByWorkObjectType($type_id)->with('workObject')->paginate(10);
-        $workObjects = WorkObjectType::all();
-
-        return view('taskShowAll',
-            ['tasks'=>$tasks,
-             'workObjects'=>$workObjects]);
-    }*/
 }

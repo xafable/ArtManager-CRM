@@ -23,7 +23,7 @@ class AdditionalAttributeController extends Controller
 
     function update(Request $request)
     {
-       // dd($request->all());
+
         if($request->has("deleteAttributes")){
             AdditionalAttribute::destroy($request->deleteAttributes);
         }
@@ -31,8 +31,6 @@ class AdditionalAttributeController extends Controller
         $workObjectId = $request->workObjectId;
         if ($request->has("newAttribute")) {
             foreach ($request->newAttribute as $attribute) {
-
-                //  dd($attribute['title']);
                 AdditionalAttribute::query()->create([
                     'work_object_id' => $workObjectId,
                     'title_ru' => $attribute['title'],

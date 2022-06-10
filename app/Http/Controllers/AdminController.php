@@ -32,7 +32,6 @@ class AdminController extends Controller
   }
 
     function updateSearchSettings(Request $request){
-        //dd($request->typeFields);
         TypeField::query()->withoutGlobalScopes()->whereIn('id',$request->typeFields)->update(['searchable'=>1]);
         TypeField::query()->withoutGlobalScopes()->whereNotIn('id',$request->typeFields)->update(['searchable'=>0]);
 

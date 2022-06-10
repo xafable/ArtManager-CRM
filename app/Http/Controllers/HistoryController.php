@@ -13,16 +13,9 @@ class HistoryController extends Controller
         $workObject = WorkObject::query()->find($id);
         $histories = $workObject->history;
         $users = array();
-
         foreach ($histories as $history){
             $users[$history->user_id] =  User::query()->find($history->user_id)->fio;
         }
-
-
-        // dd($users);
-
-
-
 
         return view('workObjectHistory',['workObject'=>$workObject,'histories'=>$histories,'users'=>$users]);
 

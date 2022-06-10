@@ -47,9 +47,6 @@ class UpdateWorkObjectRequest extends FormRequest
         $attributes = [];
         if($this->request->has('value')) {
             foreach ($this->request->get('value') as $key => $val) {
-                // dump($key);
-                // dump($val);
-                // dd(Attribute::query()->find($key)->type_field_id);
                 $attributes['value.' . $key] = Attribute::query()->find($key)->title_ru;
             }
         }

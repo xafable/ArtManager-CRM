@@ -39,24 +39,18 @@ class WorkObjectController extends Controller
     }
 
     function  show(){
-
         $objectTypes = WorkObjectType::query()->get();
         $workObjects = WorkObject::FilterByWoTypePermission()->orderByDesc('created_at')->paginate(10);
         $typeFields = TypeField::query()->select('title_eng','title_ru','enumeration_id','format')->distinct()->get();
-        //dump($typeFields);
-        ///$enumData = EnumerationData::query()->get()->groupBy('enumeration_id');
-        //$roles = Role::all();
 
         return view('workObjectShow',['types'=>$objectTypes,'workObjects'=>$workObjects ,
             'typeFields'=>$typeFields,'enumerationsData'=>$this->enumerationsData]);
     }
 
     function showByType($typeId){
-
         $objectTypes = WorkObjectType::query()->get();
         $workObjects = WorkObject::FilterByWoTypePermission()->where('type_id','=',$typeId)->orderByDesc('created_at')->paginate(10);
         $typeFields = TypeField::query()->byWorkObjectTypeId($typeId)->get();
-        //$enumData = EnumerationData::query()->get()->groupBy('enumeration_id');
 
         return view('workObjectShow',['types'=>$objectTypes,
             'workObjects'=>$workObjects,
@@ -66,10 +60,6 @@ class WorkObjectController extends Controller
     }
 
     function showByFilter(Request $request){
-
-
-        // DB::enableQueryLog(); // Enable query log
-
         if($request->workObjectTypeId == 0){
             $workObjectsIds = Attribute::SqlFilter($request->attributeFilters)->distinct()->pluck('attributes.work_object_id');
             $typeFields = TypeField::query()->select('title_eng','title_ru','enumeration_id','format_id')->distinct()->get();
@@ -79,7 +69,6 @@ class WorkObjectController extends Controller
             $typeFields = TypeField::query()->byWorkObjectTypeId($request->workObjectTypeId)->get();
         }
 
-        //dd(DB::getQueryLog()); // Show results of log
         $objectTypes = WorkObjectType::query()->get();
         $workObjects = WorkObject::FilterByWoTypePermission()->whereIn('id', $workObjectsIds);
 
@@ -101,7 +90,6 @@ class WorkObjectController extends Controller
     }
 
     function insert(Request $request){
-
         $workObject = WorkObject::query()->create(
             ['type_id'=>$request->type_id,
             'title'=>$request->title,
@@ -128,10 +116,8 @@ class WorkObjectController extends Controller
                         'type_field_id'=>$field->id]);
                 }
 
-
             }
             else{
-                //dd($field);
                 Attribute::query()->create([
                     'work_object_id'=>$workObject->id,
                     'title_ru'=>$field->title_ru,
@@ -150,7 +136,6 @@ class WorkObjectController extends Controller
     }
 
     function edit($id){
-
         $workObject = WorkObject::query()->find($id);
 
        return view('workObjectEdit',[
@@ -163,8 +148,6 @@ class WorkObjectController extends Controller
 
 
     function update(UpdateWorkObjectRequest $request){
-
-
         $workObject = WorkObject::query()->find($request->workObject_id);
         $workObject->update([
             'description'=>$request->description,
@@ -184,7 +167,6 @@ class WorkObjectController extends Controller
     }
 
     function updateStatus(Request $request){
-        //dd($request->all());
         WorkObject::query()->where('id',$request->workObjectId)->update([
             'status_id'=>$request->statusId,
         ]);
@@ -198,12 +180,10 @@ class WorkObjectController extends Controller
 
     function delete(Request $request){
         $workObject = WorkObject::query()->find($request->workObject_id);
-
         $workObject->tasks()->delete();
         $workObject->attributes()->delete();
         $workObject->comments()->delete();
         $workObject->media()->delete();
-
         $workObject->delete();
 
         return redirect()->route('object.show');

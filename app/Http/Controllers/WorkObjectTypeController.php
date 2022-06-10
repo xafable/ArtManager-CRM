@@ -55,7 +55,6 @@ class WorkObjectTypeController extends Controller
     }
 
     function update(Request $request){
-        //dd($request->all());
         TypeSetting::query()->where('work_object_type_id',$request->workObjectTypeId)
             ->update(['status_type_id'=>$request->statusType]);
         $typeFieldsIds = array();
@@ -65,7 +64,6 @@ class WorkObjectTypeController extends Controller
         if($request->has('fieldParams')) {
             foreach ($request->fieldParams as $key => $value) {
 
-                // DB::enableQueryLog(); // Enable query log
                 $typeField = TypeField::query()->withoutGlobalScopes()->UpdateOrcreate(['id' => $value['id']],
                     ['title_ru' => $value['title'],
                         'title_eng' => Str::slug($value['title']),
@@ -73,7 +71,6 @@ class WorkObjectTypeController extends Controller
                         'enumeration_id' => $value['field_format'] == 7 ? $value['enumeration_id'] : NULL,
                         'required' => array_key_exists('required', $value) ? '1' : '0'
                     ]);
-                //dd(DB::getQueryLog());
                 array_push($typeFieldsIds, $typeField->id);
             }
             $workObjectType->typeFields()->syncWithoutDetaching($typeFieldsIds);
