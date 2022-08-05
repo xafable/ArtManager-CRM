@@ -2,37 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70c4d8fc-250e-4995-9bdb-877f17251585" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WorkObjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WorkObjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/artManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/artManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/31/41323_555.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/33/8976_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/35/54725_54545.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/38/13273_555.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/38/78745_artmanager.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/38/89026_2222222.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/39/64320_gruppmo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/43/18098_travel_S.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/45/73048_54545.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/56/35458_sql_error.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/61/24698_artmanager_.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/67/3eE2l0NkutoSwIqhKDvtmGThN08jFSvyyrNMZErB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/67/SvlYGmwqKG8ovIUQOuUoyceXizY1yZ3uTAkdCD9y.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/67/cEM56BTBrXkvB48ike9brLYWdPiCK1a0cev6IyMn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/73/9No9bQConMpJzZw8PJqyVEJ92KtV203iNV36eQ3Z.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/73/NdJxkaSBvjLlgNm0lD6vK2Sczdo64n3YpX4yo5cg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/73/P5k3sHURpEc3QVNshBLw3ihMgzNeYsWc8ePgvqWI.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/76/FCgTG8Mu8FeRkiICCHqBTo4CFc5BS4WY9SHehkDD.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/76/YEhqOyekHm6jDH16FXOz8jo013dTBD7aIcYaxBnu.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/76/t4MLzC7fsw5th4vUgxnixATQ96aumqKQmvTpAqp2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/uploads/76/xbPcWxbPHfxzXMBxFHxq2C39d6vXrnqfqGQvh4bO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/WorkObject.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/WorkObject.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/nFXkJ0dWrSKlaCV22Nl8UuG4ZOieBSXCYfs127DV" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +172,7 @@
       <updated>1659544300504</updated>
       <workItem from="1659544301554" duration="2737000" />
       <workItem from="1659644148851" duration="699000" />
-      <workItem from="1659708846463" duration="305000" />
+      <workItem from="1659708846463" duration="3380000" />
     </task>
     <servers />
   </component>

@@ -45,6 +45,11 @@ class WorkObject extends Model
     }
 
     public function scopeFilterByWoTypePermission($builder){
+        if (Auth::user()->hasRole('Admin')){
+            //dd(1);
+            return $builder;
+        }
+
         $permsissions = Permission::getWoTypeIdFromRolePermissions(Auth::user()->roles->pluck('id')[0]);
         return $builder->whereIn('type_id',$permsissions);
 
