@@ -46,7 +46,6 @@ class WorkObject extends Model
 
     public function scopeFilterByWoTypePermission($builder){
         if (Auth::user()->hasRole('Admin')){
-            //dd(1);
             return $builder;
         }
 
