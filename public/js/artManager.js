@@ -12,7 +12,7 @@ let editAdditionalAttributesEnabled = false;
 function submitWorkObject(){
     let el = document.getElementById("workObjectEditForm");
     let formData =  new FormData(el);
-    fetch('http://localhost:4444/object/update',{
+    fetch('http://artmanager-crm/object/update',{
         body: formData,
         method: "POST"
     }).then(r =>  r.json().then(data => ({status: r.status, body: data})))

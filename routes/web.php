@@ -26,109 +26,6 @@ use Spatie\Permission\Models\Role;
 |
 */
 
-Route::get('/install',function (){
-
-     Artisan::call('migrate');
-
-     Role::create(['name' => 'Admin']);
-     Role::create(['name' => 'Viewer']);
-
-    $user = \App\Models\User::query()->create([
-        'name' => 'admin',
-        'email' => 'admin@a.com',
-        'password' => Hash::make('admin'),
-        'created_at'=>Carbon::now(),
-        'fio'=>'Admin'
-    ]);
-
-    $user->assignRole('Admin');
-
-    $workObjectType = WorkObjectType::query()->create([
-        'user_id'=>$user->id,
-        'title'=>'Default']);
-
-    TypeSetting::query()->create([
-        'work_object_type_id'=>$workObjectType->id,
-        'status_type_id'=>1 ]);
-
-    $data = [
-        [
-            'title_ru' => 'Координаты',
-            'title_eng' => Str::slug('Координаты'),
-            'format' => 'coordinates',
-            'enumeration_id' => NULL,
-            'required' =>  0
-        ],
-        [
-            'title_ru' => 'Город',
-            'title_eng' => Str::slug('Город'),
-            'format' => 'enum',
-            'enumeration_id' => 1,
-            'required' =>  0
-        ],
-        [
-            'title_ru' => 'Дата регистрации',
-            'title_eng' => Str::slug('Дата регистрации'),
-            'format' => 'date',
-            'enumeration_id' => NULL,
-            'required' =>  0
-        ],
-        [
-            'title_ru' => 'Пожарка',
-            'title_eng' => Str::slug('Дата регистрации'),
-            'format' => 'boolean',
-            'enumeration_id' => NULL,
-            'required' =>  0
-        ],
-    ];
-
-    $typeFieldsIds = array();
-    foreach ($data as $row){
-        $tp = TypeField::query()->create($row);
-        array_push($typeFieldsIds, $tp->id);
-
-    }
-
-    $workObjectType->typeFields()->syncWithoutDetaching($typeFieldsIds);
-    $workObjectType->typeSetting->status_type_id = 1;
-    $workObjectType->save();
-
-    $statusType = StatusType::query()->create(['user_id'=>$user->id,'title'=>'Default']);
-
-    $data = [
-        [
-            'title' => 'Новый',
-            'type_id' => $statusType->id,
-            'status_id' => 0,
-        ],
-        [
-            'title' => 'В работе',
-            'type_id' => $statusType->id,
-            'status_id' => 1,
-        ],
-        [
-            'title' => 'Ожидание',
-            'type_id' => $statusType->id,
-            'status_id' => 2,
-        ],
-        [
-            'title' => 'Выполнен',
-            'type_id' => $statusType->id,
-            'status_id' => 3,
-        ],
-
-    ];
-
-    Status::query()->insert($data);
-
-    $enum = Enumeration::query()->create(['title'=>'Города','created_at'=>Carbon::now()]);
-    $enum->data()->create(['value'=>'Киев','created_at'=>Carbon::now()]);
-    $enum->data()->create(['value'=>'Харьков','created_at'=>Carbon::now()]);
-    $enum->data()->create(['value'=>'Одесса','created_at'=>Carbon::now()]);
-
-
-    dump('OK');
-});
 
 
 
@@ -245,6 +142,111 @@ Route::prefix('user')->name('user.')->group(function (){
 
 });
 
-Route::get('/main', function () {
+Route::get('/', function () {
     return redirect()->route('object.show');
 })->name('main');
+
+Route::get('/install',function (){
+
+    Artisan::call('migrate');
+
+    Role::create(['name' => 'Admin']);
+    Role::create(['name' => 'Viewer']);
+
+    $user = \App\Models\User::query()->create([
+        'name' => 'admin',
+        'email' => 'admin@a.com',
+        'password' => Hash::make('admin'),
+        'created_at'=>Carbon::now(),
+        'fio'=>'Admin'
+    ]);
+
+    $user->assignRole('Admin');
+
+    $workObjectType = WorkObjectType::query()->create([
+        'user_id'=>$user->id,
+        'title'=>'Default']);
+
+    TypeSetting::query()->create([
+        'work_object_type_id'=>$workObjectType->id,
+        'status_type_id'=>1 ]);
+
+    $data = [
+        [
+            'title_ru' => 'Координаты',
+            'title_eng' => Str::slug('Координаты'),
+            'format' => 'coordinates',
+            'enumeration_id' => NULL,
+            'required' =>  0
+        ],
+        [
+            'title_ru' => 'Город',
+            'title_eng' => Str::slug('Город'),
+            'format' => 'enum',
+            'enumeration_id' => 1,
+            'required' =>  0
+        ],
+        [
+            'title_ru' => 'Дата регистрации',
+            'title_eng' => Str::slug('Дата регистрации'),
+            'format' => 'date',
+            'enumeration_id' => NULL,
+            'required' =>  0
+        ],
+        [
+            'title_ru' => 'Пожарка',
+            'title_eng' => Str::slug('Дата регистрации'),
+            'format' => 'boolean',
+            'enumeration_id' => NULL,
+            'required' =>  0
+        ],
+    ];
+
+    $typeFieldsIds = array();
+    foreach ($data as $row){
+        $tp = TypeField::query()->create($row);
+        array_push($typeFieldsIds, $tp->id);
+
+    }
+
+    $workObjectType->typeFields()->syncWithoutDetaching($typeFieldsIds);
+    $workObjectType->typeSetting->status_type_id = 1;
+    $workObjectType->save();
+
+    $statusType = StatusType::query()->create(['user_id'=>$user->id,'title'=>'Default']);
+
+    $data = [
+        [
+            'title' => 'Новый',
+            'type_id' => $statusType->id,
+            'status_id' => 0,
+        ],
+        [
+            'title' => 'В работе',
+            'type_id' => $statusType->id,
+            'status_id' => 1,
+        ],
+        [
+            'title' => 'Ожидание',
+            'type_id' => $statusType->id,
+            'status_id' => 2,
+        ],
+        [
+            'title' => 'Выполнен',
+            'type_id' => $statusType->id,
+            'status_id' => 3,
+        ],
+
+    ];
+
+    Status::query()->insert($data);
+
+    $enum = Enumeration::query()->create(['title'=>'Города','created_at'=>Carbon::now()]);
+    $enum->data()->create(['value'=>'Киев','created_at'=>Carbon::now()]);
+    $enum->data()->create(['value'=>'Харьков','created_at'=>Carbon::now()]);
+    $enum->data()->create(['value'=>'Одесса','created_at'=>Carbon::now()]);
+
+
+    dump('OK');
+});
+

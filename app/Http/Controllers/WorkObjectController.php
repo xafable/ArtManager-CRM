@@ -98,7 +98,7 @@ class WorkObjectController extends Controller
             'status_type_id'=>TypeSetting::query()->where('work_object_type_id','=',$request->type_id)->first()->status_type_id,
             'user_id'=>Auth::id()]);
 
-        $workObject->SaveHistory();
+        //$workObject->SaveHistory();
         $type = WorkObjectType::query()->find($request->type_id);
 
 

@@ -54,7 +54,7 @@
             @elseif ($attribute->format == 'integer')
                 <input disabled data-attribute name="value[{{ $attribute->id }}]" type="number" value="{{ $attribute->getValue()}}" class="form-control"  aria-describedby="basic-addon1">
             @elseif ($attribute->format == 'date')
-                <input disabled data-attribute name="value[{{ $attribute->id }}]" type="date" value="{{ $attribute->getValue()}}" class="form-control"  aria-describedby="basic-addon1">
+                <input disabled data-attribute name="value[{{ $attribute->id }}]" type="date" value="{{ $attribute->getHtmlDate()}}" class="form-control"  aria-describedby="basic-addon1">
             @elseif ($attribute->format == 'coordinates')
                 <input disabled data-attribute name="value[{{ $attribute->id }}]" type="text" value="{{ $attribute->getValue()}}" class="form-control"  aria-describedby="basic-addon1">
 
