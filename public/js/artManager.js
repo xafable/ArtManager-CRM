@@ -107,7 +107,6 @@ function fieldFormatOnChange(obj){
     let enumSelect = parent.querySelector("#enumSelector");
 
 
-    //alert(obj.value);
     if(obj.value == 'enum'){
         enumSelect.style.visibility = 'visible';
     }
