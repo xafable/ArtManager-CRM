@@ -1,48 +1,50 @@
-<h2>Система разработана для фирмы занимающейся установкой пожарных систем, видеокамер и различных датчиков.</h5>
+<h2>The system was developed for a company that installs fire systems, video cameras and various sensors.</h5>
 
-<h>-Создание шаблонов объектов обслуживания</h>
+<h>-Creating service object templates</h>
 
  <img class="fit-picture"
      src="https://engineer-crm.rahubovskyi.space/storage/app_screenshots/1.png">
 
--Создание объектов обслуживания по шаблонам
+-Creation of service objects according to templates
 
  <img class="fit-picture"
      src="https://engineer-crm.rahubovskyi.space/storage/app_screenshots/2.png">
  
--Кастомные статусы для объектов
+-Custom statuses for objects
 
  <img class="fit-picture"
      src="https://engineer-crm.rahubovskyi.space/storage/app_screenshots/3.png">
 
--Вложения
+-Attachments
 
  <img class="fit-picture"
      src="https://engineer-crm.rahubovskyi.space/storage/app_screenshots/4.png">
  
--История изменений по объекту
+-History of changes by object
 
  <img class="fit-picture"
      src="https://engineer-crm.rahubovskyi.space/storage/app_screenshots/5.png">
  
--Добавление дополнительных атрибутов к каждому объекту
+-Adding additional attributes to each object
 
  <img class="fit-picture"
      src="https://engineer-crm.rahubovskyi.space/storage/app_screenshots/6.png">
  
--Назначение задач пользователям
+-Assign tasks to users
 
  <img class="fit-picture"
      src="https://engineer-crm.rahubovskyi.space/storage/app_screenshots/7.png">
  
--Роли доступа. Создание новых ролей, возможность настройки прав для ролей доступа
+- Access roles. Creation of new roles, the ability to configure rights for access roles
 
  <img class="fit-picture"
      src="https://engineer-crm.rahubovskyi.space/storage/app_screenshots/8.png">
  
--Поиск по объектам<br>
--Просмотр моих задач<br>
--Календарь назначенных задач<br>
--Уведомление о назначении и изменениях в задаче в Телеграм<br>
+-Search by objects<br>
+-View my tasks<br>
+-Calendar of assigned tasks<br>
+-Notification about the assignment and changes in the task in Telegram<br>
+
+<hr>
 
 
