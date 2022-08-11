@@ -68,7 +68,7 @@ class WorkObjectTypeController extends Controller
                     ['title_ru' => $value['title'],
                         'title_eng' => Str::slug($value['title']),
                         'format' => $value['field_format'],
-                        'enumeration_id' => $value['field_format'] == 7 ? $value['enumeration_id'] : NULL,
+                        'enumeration_id' => $value['field_format'] == 'boolean' ? $value['enumeration_id'] : NULL,
                         'required' => array_key_exists('required', $value) ? '1' : '0'
                     ]);
                 array_push($typeFieldsIds, $typeField->id);

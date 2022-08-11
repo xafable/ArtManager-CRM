@@ -186,7 +186,7 @@
             <div class="col">
                 <select data-typeFieldId="fieldParam_0_" id="fieldFormatSelector" onchange="fieldFormatOnChange(this)" param="select" name="fieldParams[_0_][field_format]" class="form-select"  required>
                     @foreach($fieldFormats as $fieldFormat)
-                        <option value="{{$fieldFormat->id}}" selected>{{$fieldFormat->title}}</option>
+                        <option value="{{$fieldFormat->format}}" selected>{{$fieldFormat->title}}</option>
                     @endforeach
                 </select>
             </div>
