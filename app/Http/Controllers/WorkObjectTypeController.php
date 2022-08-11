@@ -67,7 +67,7 @@ class WorkObjectTypeController extends Controller
                 $typeField = TypeField::query()->withoutGlobalScopes()->UpdateOrcreate(['id' => $value['id']],
                     ['title_ru' => $value['title'],
                         'title_eng' => Str::slug($value['title']),
-                        'format_id' => $value['field_format'],
+                        'format' => $value['field_format'],
                         'enumeration_id' => $value['field_format'] == 7 ? $value['enumeration_id'] : NULL,
                         'required' => array_key_exists('required', $value) ? '1' : '0'
                     ]);
