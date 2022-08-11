@@ -45,8 +45,12 @@ class GoogleController extends Controller
                     'password' => Hash::make('1111'),
                 ]);
 
+                $newUser->assignRole('Viewer');
                 Auth::login($newUser,true);
+
             }
+
+
 
         return redirect()->route('main');
 
